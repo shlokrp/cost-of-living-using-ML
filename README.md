@@ -1,5 +1,4 @@
 # Cost of Living Prediction
-
 ## Overview
 
 This project focuses on forecasting **future cost of living values** across global cities using advanced **data science** and **machine learning techniques**. It integrates historical datasets, inflation rates, and user inputs (such as lifestyle preferences and demographics) to provide **personalized cost of living predictions**.
