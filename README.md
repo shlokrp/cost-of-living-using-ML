@@ -1,44 +1,94 @@
-📈 Cost of Living Prediction
-This project provides a comprehensive framework for forecasting future cost of living values across diverse global cities using data science and machine learning. We aim to empower individuals, businesses, and policymakers with actionable insights to navigate the dynamic landscape of global economics.
+# Cost of Living Prediction
 
-✨ Key Features
+## Overview
 
-🌍 Global City Forecasting: Predicts cost of living for over 3,000 cities worldwide.
+This project focuses on forecasting **future cost of living values** across global cities using advanced **data science** and **machine learning techniques**. It integrates historical datasets, inflation rates, and user inputs (such as lifestyle preferences and demographics) to provide **personalized cost of living predictions**.
 
+A **web-based interface** was developed to ensure accessibility and usability, featuring an interactive dashboard with data visualizations and city-to-city comparisons.
 
+---
 
-🤖 Advanced ML Models: Utilizes a suite of time-series algorithms for robust forecasting.
+## Features
 
+* Forecasting cost of living using multiple ML models:
 
-👤 Personalized Predictions: Integrates user lifestyle preferences like dining habits and family size for tailored forecasts.
+  * ARIMA
+  * SARIMA
+  * LSTM
+  * Exponential Smoothing
+  * Polynomial Regression
+  * Ensemble Models
 
+* **Data Integration**
 
+  * Historical cost of living data (2000–2022)
+  * Inflation rates
+  * User lifestyle preferences
 
-📊 Interactive Dashboard: Features a user-friendly web interface with an immersive data visualization dashboard for easy analysis and city-to-city comparisons.
+* **Web Application**
 
-🤖 Machine Learning Techniques Used
-Our evaluation encompassed a diverse suite of machine learning and time-series forecasting algorithms to ensure accuracy and reliability. The models tested include:
+  * Built with Flask (Python) backend
+  * Frontend with HTML, CSS, and JavaScript
+  * Covers over **3000 cities worldwide**
+  * Personalized predictions and trend visualizations
 
+* **Visualization Dashboard**
 
-Exponential Smoothing (ES) 
+  * City-to-city comparisons
+  * Historical and forecasted trends
+  * Graphical representations of cost dynamics
 
+---
 
-Long Short-Term Memory (LSTM) 
+## Methodology
 
+1. **Data Collection** – Global cost of living dataset (2022 base year) + inflation rates (2000–2022).
+2. **Preprocessing** – Handling missing values, outliers, and normalization.
+3. **Exploratory Data Analysis (EDA)** – Identifying patterns and correlations.
+4. **Feature Engineering** – Creating informative variables for better predictions.
+5. **Model Development** – Implementing time series and machine learning models.
+6. **Validation** – Using MAE and MAPE for accuracy assessment.
+7. **Integration** – Incorporating user preferences and inflation trends.
+8. **Deployment** – Flask-based web app with interactive dashboard.
+9. **Continuous Improvement** – Updates based on user feedback and evolving data.
 
-ARIMA (AutoRegressive Integrated Moving Average) 
+---
 
+## Results
 
-SARIMA (Seasonal AutoRegressive Integrated Moving Average) 
+* **Best performing models**:
 
+  * SARIMA (up to 94.3% accuracy)
+  * Exponential Smoothing (average 90%+ accuracy globally)
+* Ensemble models showed stable results across different time ranges.
+* Forecasts tailored to both **macro-level city trends** and **individual user needs**.
 
-Polynomial Regression 
+---
 
+## Challenges
 
-Ensemble Methods (e.g., combining Exponential Smoothing with ARIMA and SARIMA) 
+* Limited availability of historical cost of living datasets.
+* Heavy reliance on inflation rates as a major factor.
+* Integration of models with a real-time web interface.
+* Computational challenges while forecasting for 3000+ cities.
 
-🛠️ Methodology & Tech Stack
-The model is built on a comprehensive 2022 dataset of goods and services prices. This data is then backtracked to the year 2000 using historical inflation rates to create a robust time-series database for forecasting.
+---
 
-Backend: Python, Flask 
-Frontend: HTML, CSS, JavaScript 
+## Future Improvements
+
+* Acquire larger and more granular datasets (multi-year, intra-city).
+* Incorporate additional economic indicators (wages, housing, demographics).
+* Enhance validation with more real-world testing data.
+* Expand visualization capabilities for deeper user insights.
+* Optimize backend for faster large-scale forecasting.
+
+---
+
+## Tech Stack
+
+* **Programming**: Python
+* **Frameworks**: Flask, NumPy, Pandas, Scikit-learn, Statsmodels, TensorFlow/Keras
+* **Frontend**: HTML, CSS, JavaScript
+* **Visualization**: Matplotlib, Plotly
+* **Deployment**: Flask-based web interface
+
