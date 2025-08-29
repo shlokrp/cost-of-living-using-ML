@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Add your own CSS styles here -->
+    <style>
+      .card {
+        text-align: center;
+      }
+
+      .card-img-top {
+        border-radius: 70%; /* Ensures circular shape */
+        width: 100px; /* Set the desired width for consistency */
+        height: 100px; /* Set the desired height for consistency */
+        object-fit: cover; /* Maintain aspect ratio */
+        margin: 0 auto; /* Center the image horizontally */
+      }
+      /* Example style for the team section */
+      #team .card {
+        height: 100%;
+      }
+
+      /* Example style for the team member images in modals */
+      .modal-body img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .cards .card {
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        transition: 400ms;
+      }
+
+      .cards .red {
+        background-color: #f43f5e;
+      }
+
+      .cards .blue {
+        background-color: #3b82f6;
+      }
+
+      .cards .green {
+        background-color: #22c55e;
+      }
+
+      .cards .card:hover {
+        transform: scale(1.1, 1.1);
+      }
+
+      .cards:hover > .card:not(:hover) {
+        filter: blur(10px);
+        transform: scale(0.9, 0.9);
+      }
+
+      .cards .card .card-body {
+        padding: 20px;
+      }
+
+      .cards .card h5.card-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .cards .card p.card-text {
+        font-size: 1em;
+      }
+      /* CSS for Team Member Profiles */
+      .member-card {
+        border: 2px solid transparent;
+        transition: border-color 0.3s ease;
+      }
+
+      .member-card:hover {
+        animation: pulse 0.5s infinite alternate;
+        border-color: #007bff;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          border-color: #007bff;
+        }
+        100% {
+          transform: scale(1.05);
+          border-color: transparent;
+        }
+      }
+
+      .member-card .card-body {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+
+      .member-card .btn-primary {
+        background-color: #007bff;
+        border: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .member-card .btn-primary:hover {
+        background-color: #0056b3;
+      }
+
+      .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .cards .card {
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        transition: 400ms;
+      }
+      
+      .cards .red {
+        background-color: #f43f5e;
+      }
+      
+      .cards .blue {
+        background-color: #3b82f6;
+      }
+      
+      .cards .green {
+        background-color: #22c55e;
+      }
+      
+      .cards .card:hover {
+        transform: scale(1.1, 1.1);
+      }
+      
+      .cards:hover > .card:not(:hover) {
+        filter: blur(10px);
+        transform: scale(0.9, 0.9);
+      }
+      
+      .cards .card .card-body {
+        padding: 20px;
+      }
+      
+      .cards .card h5.card-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      
+      .cards .card p.card-text {
+        font-size: 1em;
+      }
+      
+      /* CSS for Team Member Profiles */
+      .member-card {
+        border: 2px solid transparent;
+        transition: border-color 0.3s ease;
+      }
+      
+      .member-card:hover {
+        animation: pulse 0.5s infinite alternate;
+        border-color: #007bff;
+      }
+      
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          border-color: #007bff;
+        }
+        100% {
+          transform: scale(1.05);
+          border-color: transparent;
+        }
+      }
+      
+      .member-card .card-body {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+      
+      .member-card .btn-primary {
+        background-color: #007bff;
+        border: none;
+        transition: background-color 0.3s ease;
+      }
+      
+      .member-card .btn-primary:hover {
+        background-color: #0056b3;
+      }
+      
+    </style>
+    <title>Our Team - Cost of Living Prediction</title>
+  </head>
+
+  <body>
+    <!-- Navigation Bar (if applicable) -->
+    <!-- Add your navigation bar code here -->
+
+    <div class="container mt-5">
+      <h2 class="text-center">Meet Our Team</h2>
+      <p class="text-center">
+        Dedicated Experts Driving Cost of Living Predictions Through Inflation
+        Analysis
+      </p>
+
+      <!-- Individual Member Profiles -->
+      <div class="row mt-4">
+        <!-- Team Member 1 -->
+        <div class="col-md-3">
+          <div class="card border-primary mb-3">
+            <img
+              src="static/images/person1.jpg"
+              class="card-img-top img-fluid"
+              alt="Member 1"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Abdur Rahmaan Doctor</h5>
+              <p class="card-text">Machine Learning Engineer</p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#member1Modal"
+              >
+                View Profile
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="col-md-3">
+          <div class="card border-secondary mb-3">
+            <img
+              src="static/images/person3.jpg"
+              class="card-img-top img-fluid"
+              alt="Member 2"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Vrushti Shah</h5>
+              <p class="card-text">Machine Learning Engineer</p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#member2Modal"
+              >
+                View Profile
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="col-md-3">
+          <div class="card border-success mb-3">
+            <img
+              src="static/images/person2(1).jpg"
+              class="card-img-top img-fluid"
+              alt="Member 3"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Nikesh M</h5>
+              <p class="card-text">Frontend Developer</p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#member3Modal"
+              >
+                View Profile
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div class="col-md-3">
+          <div class="card border-warning mb-3">
+            <img
+              src="static/images/person4.jpg"
+              class="card-img-top img-fluid"
+              alt="Member 4"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Abhirajsinh Chauhan</h5>
+              <p class="card-text">Backend Developer</p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#member4Modal"
+              >
+                View Profile
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <hr />
+
+    <!-- Team Collaboration Section -->
+<div class="mt-5 cards">
+  <h2 class="text-center mb-4">Team Collaboration</h2>
+
+  <div class="row">
+    <!-- Data Collection and Cleaning Section -->
+    <div class="col-md-6 mb-4">
+      <div class="card red">
+        <div class="card-body">
+          <h5 class="card-title">Data Collection and Cleaning</h5>
+          <p class="card-text">
+            Our team efficiently collaborated in collecting and cleaning
+            the dataset for accurate predictions. This involved:
+          </p>
+          <ul>
+            <li>
+              Thoroughly sourcing diverse and reliable data on inflation
+              rates from various countries.
+            </li>
+            <li>
+              Implementing robust data cleaning techniques to handle
+              missing values, outliers, and inconsistencies.
+            </li>
+            <li>
+              Ensuring data quality and integrity to create a high-quality
+              dataset for model training.
+            </li>
+          </ul>
+          <p class="card-text">
+            Our collective efforts in this phase laid a strong foundation
+            for the success of the project.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Machine Learning Model Development Section -->
+    <div class="col-md-6 mb-4">
+      <div class="card green">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">
+            Machine Learning Model Development
+          </h5>
+          <p class="card-text">
+            In the model development phase, our machine learning engineers
+            worked collaboratively on:
+          </p>
+          <ul>
+            <li>
+              Preprocessing the dataset to extract meaningful features for
+              model training.
+            </li>
+            <li>
+              Building and fine-tuning machine learning algorithms to
+              predict inflation rates accurately.
+            </li>
+            <li>
+              Conducting rigorous testing and validation to ensure the
+              model's reliability and generalization.
+            </li>
+          </ul>
+          <p class="card-text">
+            Our teamwork in this stage resulted in a powerful predictive
+            model ready for deployment.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Centered Website Development Section -->
+    <div class="col-md-6 mx-auto mb-4">
+      <div class="card blue">
+        <div class="card-body">
+          <h5 class="card-title">Website Development</h5>
+          <p class="card-text">
+            The frontend and backend developers collaborated seamlessly
+            on:
+          </p>
+          <ul>
+            <li>
+              Designing an intuitive and user-friendly interface using
+              Bootstrap for the frontend.
+            </li>
+            <li>
+              Implementing backend functionalities with Flask and Django
+              to connect the machine learning model to the website.
+            </li>
+            <li>
+              Ensuring a responsive and engaging user experience for
+              showcasing predicted results.
+            </li>
+          </ul>
+          <p class="card-text">
+            Our teamwork resulted in a well-integrated website, providing
+            users with valuable insights.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more sections as needed -->
+  </div>
+</div>
+
+      <br />
+      <hr />
+
+      <!-- Key Achievements Section -->
+      <div class="container">
+        <div class="row mt-5 text-center">
+          <h2 class="mb-4 mx-auto">Key Achievements</h2>
+
+          <div class="cards">
+            <div class="card red">
+              <div class="card-body">
+                <h5 class="card-title">Successful Model Training</h5>
+                <p class="card-text">
+                  Our team achieved successful training of the machine learning
+                  model, achieving high accuracy in predicting inflation rates
+                  for various countries. Rigorous testing and validation
+                  processes were implemented to ensure the model's reliability.
+                </p>
+              </div>
+            </div>
+
+            <div class="card blue">
+              <div class="card-body">
+                <h5 class="card-title">Flawless Website Integration</h5>
+                <p class="card-text">
+                  The integration of our machine learning model into the website
+                  was executed flawlessly. Using Flask and Django, we seamlessly
+                  connected the backend to the frontend, allowing users to
+                  interact with and visualize the predictions with ease.
+                </p>
+              </div>
+            </div>
+
+            <div class="card green">
+              <div class="card-body">
+                <h5 class="card-title">Positive User Feedback</h5>
+                <p class="card-text">
+                  Our website received positive feedback from users who found
+                  the predictions insightful and valuable. The user-friendly
+                  design and accurate predictions contributed to a positive user
+                  experience.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA (Call to Action) -->
+      <div class="text-center mt-4">
+        <a href="index.html" class="btn btn-primary">Discover Your Forecast</a>
+      </div>
+      <br />
+      <hr />
+
+      <!-- Contact Information Section -->
+      <div class="mt-5">
+        <h4 class="text-center">Contact Information</h4>
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text">
+              For inquiries, contact us at:
+              <a href="mailto:info@example.com">info@example.com</a>
+            </p>
+            <p class="card-text">
+              Feel free to reach out via our
+              <a href="ContactUs.html">Contact Form</a>.
+            </p>
+            <p class="card-text">
+              Connect with us on
+              <a href="https://www.linkedin.com/company/example" target="_blank"
+                >LinkedIn</a
+              >
+              and
+              <a href="https://twitter.com/example" target="_blank">Twitter</a>.
+            </p>
+            <p class="card-text">Visit us at: 123 Main Street, City, Country</p>
+            <p class="card-text">Call us at: +123 456 7890</p>
+            <p class="card-text">
+              We typically respond to inquiries within 24 hours during business
+              days.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modals for Detailed Team Member Information -->
+
+    <!-- Member 1 Modal -->
+    <div
+      class="modal fade"
+      id="member1Modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="member1ModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="member1ModalLabel">
+              Abdur Rahmaan Doctor - Data Scientist
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img
+              src="static/images/person1.jpg"
+              class="img-fluid"
+              alt="Abdur Rahman"
+            />
+            <p>
+              Bio: Abdur Rahman is a skilled data scientist with expertise in
+              machine learning and statistical analysis. He played a key role in
+              preprocessing the dataset, extracting meaningful features, and
+              ensuring the model's accuracy. Abdur Rehman's dedication to data
+              quality laid the foundation for successful model training.
+            </p>
+            <p>
+              LinkedIn:
+              <a href="https://www.linkedin.com/in/abdur-rehman" target="_blank"
+                >Abdur Rahman's LinkedIn Profile</a
+              >
+            </p>
+            <p>
+              Twitter:
+              <a href="https://twitter.com/abdur_rehman" target="_blank"
+                >Abdur Rahman's Twitter Profile</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Member 2 Modal -->
+    <div
+      class="modal fade"
+      id="member2Modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="member2ModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="member2ModalLabel">
+              Vrushti Shah - Data Scientist
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img
+              src="static/images/person3.jpg"
+              class="img-fluid"
+              alt="Vrushti Shah"
+            />
+            <p>
+              Bio: Vrushti Shah is a dedicated data scientist specializing in
+              predictive modeling. Her expertise in fine-tuning machine learning
+              algorithms played a crucial role in achieving high accuracy.
+              Vrushti's commitment to rigorous testing and validation ensured
+              the reliability and generalization of the predictive model.
+            </p>
+            <p>
+              LinkedIn:
+              <a href="https://www.linkedin.com/in/vrushti-shah" target="_blank"
+                >Vrushti Shah's LinkedIn Profile</a
+              >
+            </p>
+            <p>
+              Twitter:
+              <a href="https://twitter.com/vrushti_shah" target="_blank"
+                >Vrushti Shah's Twitter Profile</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Member 3 Modal -->
+    <div
+      class="modal fade"
+      id="member3Modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="member3ModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="member3ModalLabel">
+              Nikesh M - Frontend Developer
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="static/images/person2.jpeg" class="img-fluid" alt="Nikesh" />
+            <p>
+              Bio: Nikesh is a creative frontend developer known for designing
+              intuitive and user-friendly interfaces. His contributions in
+              implementing Bootstrap for the frontend and ensuring a responsive
+              user experience were crucial to the success of the project.
+              Nikesh commitment to aesthetics and functionality made the
+              website visually appealing.
+            </p>
+            <p>
+              LinkedIn:
+              <a href="https://www.linkedin.com/in/abhirajsinh" target="_blank"
+                >Nikesh M LinkedIn Profile</a
+              >
+            </p>
+            <p>
+              Twitter:
+              <a href="https://twitter.com/abhirajsinh" target="_blank"
+                >Nikesh M Twitter Profile</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Member 4 Modal -->
+    <div
+      class="modal fade"
+      id="member4Modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="member4ModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="member4ModalLabel">
+              Abhirajsinh - Backend Developer
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="static/images/person4.jpg" class="img-fluid" alt="Nikesh M" />
+            <p>
+              Bio: Abhirajsinh is a skilled backend developer with expertise in
+              Flask and Django. His contributions in connecting the machine
+              learning model to the website were instrumental in creating a
+              seamless user experience. Abhirajsinh dedication to backend
+              functionalities ensured the successful integration of the
+              predictive model with the website.
+            </p>
+            <p>
+              LinkedIn:
+              <a href="https://www.linkedin.com/in/nikeshm" target="_blank"
+                >Abhirajsinh LinkedIn Profile</a
+              >
+            </p>
+            <p>
+              Twitter:
+              <a href="https://twitter.com/nikeshm" target="_blank"
+                >Abhirajsinh Twitter Profile</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <!-- Add your footer code here -->
+    <footer class="mt-5 text-center">
+      <div class="container">
+        <p>&copy; 2024 Cost Predict. All rights reserved.</p>
+        <p>Designed by Cost Predict Team</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS and jQuery (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="script.js">
+      $('a[href*="#"]').on('click', function (e) {
+          e.preventDefault();
+
+          $('html, body').animate({
+              scrollTop: $($(this).attr('href')).offset().top
+          }, 500);
+      });
+
+      // Modal interaction
+      $('.modal-open-btn').on('click', function () {
+          var targetModal = $(this).data('target');
+          $(targetModal).modal('show');
+      });
+    </script>
+  </body>
+</html>

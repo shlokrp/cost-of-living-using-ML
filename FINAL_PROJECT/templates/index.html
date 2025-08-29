@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost of Living Prediction</title>
+    Bootstrap CSS
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head> -->
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cost of Living Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #ffffff;
+        /* Light sky blue background color */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 900px;
+        background-color: rgba(
+          135,
+          206,
+          235,
+          0.3
+        ); /* Lighter sky blue background color with 70% opacity */
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        box-sizing: border-box;
+        position: relative; /* Added for animation positioning */
+        overflow: hidden; /* Ensure content doesn't overflow */
+        transition: box-shadow 0.3s ease-in-out; /* Add transition effects */
+      }
+
+      .container:hover {
+        box-shadow: 0 0 30px rgba(0, 123, 255, 0.5); /* Enhance shadow on hover */
+      }
+
+      .container:hover::before {
+        animation: border-animation 2s infinite alternate;
+        animation-play-state: running; /* Start animation on hover */
+      }
+
+      @keyframes border-animation {
+        0% {
+          border: 2px solid rgba(255, 255, 255, 0.3); /* Lighter white */
+        }
+        100% {
+          border: 2px solid rgba(255, 255, 255, 1); /* Full opacity white */
+        }
+      }
+      h2 {
+        text-align: center;
+        font-size: 35px;
+        font-weight: bold; /* Making the text bold */
+        margin-top: 0;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 15px 15px 0 0;
+        background-color: white; /* Adding white background color */
+        animation: color-change 5s infinite alternate; /* Black and blue color animation */
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700; /* Making the text thicker */
+      }
+
+      @keyframes color-change {
+        0% {
+          color: #000; /* Start with black color */
+        }
+        50% {
+          color: #add8e6; /* Transition to a brighter shade of blue */
+        }
+        100% {
+          color: #4682b4; /* Transition to a darker shade of blue */
+        }
+      }
+      form {
+        width: 100%;
+      }
+
+      form .mb-3 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      form label {
+        flex: 1;
+        margin-right: 10px;
+        color: #000000; /* Darker font color for contrast */
+        font-size: 16px;
+        font-weight: bold; /* Make the font bold */
+        font-family: "Montserrat", sans-serif; /* Unique and professional font */
+      }
+      form input[type="number"],
+      form input[type="text"],
+      form select {
+        padding: 8px;
+        border: 1px solid #cccccc;
+        border-radius: 8px;
+        font-size: 16px;
+        width: 40%;
+      }
+      form input[type="number"]:focus,
+      form input[type="text"]:focus,
+      form select:focus {
+        border-color: #007bff;
+      }
+      form input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      form input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+      select {
+        appearance: none;
+        padding: 12px;
+        border: 1px solid #cccccc;
+        border-radius: 8px;
+        font-size: 16px;
+        width: 100%;
+        background-color: #f2f2f2;
+        background-image: url('data:image/svg+xml,<svg fill="%23333" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+        background-repeat: no-repeat;
+        background-position: calc(100% - 10px) center;
+      }
+      @media (max-width: 768px) {
+        .container {
+          width: 95%;
+        }
+      }
+      @media (max-width: 768px) {
+        .container {
+          width: 95%;
+        }
+      }
+
+      .form-select-half {
+        width: 50%;
+      }
+
+      /* Custom hover animation */
+      .btn-outline-primary {
+        position: relative;
+        overflow: hidden;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: 2px solid #007bff;
+        color: #007bff;
+        transition: color 0.3s, background-color 0.3s;
+      }
+
+      .btn-outline-primary:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300%;
+        height: 300%;
+        background-color: rgba(0, 123, 255, 0.3);
+        transition: width 0.3s, height 0.3s, top 0.3s, left 0.3s;
+        border-radius: 50%;
+        z-index: 0;
+        transform: translate(-50%, -50%);
+      }
+
+      .btn-outline-primary:hover:before {
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 50%;
+      }
+
+      .btn-outline-primary:hover {
+        color: #fff;
+        background-color: #007bff;
+      }
+
+      /* Adjustments for smaller screens */
+      @media (max-width: 576px) {
+        .btn-outline-primary {
+          font-size: 14px;
+          padding: 8px 16px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2 class="mt-4">
+        <center>COST OF LIVING FORECASTING</center>
+      </h2>
+      <br />
+      <form method="POST" action="/predict" class="mt-4">
+        <div class="mb-3">
+          <label
+            for="search"
+            class="form-label"
+            style="font-size: 15px; font-weight: bold"
+            >ENTER CITY OR COUNTRY</label
+          >
+
+          <input
+            type="text"
+            class="form-control"
+            id="search"
+            name="search"
+            placeholder="Type to search"
+            required
+          />
+        </div>
+
+        <div id="searchResults" style="display: none">
+          <select id="searchDropdown" class="form-select" size="5"></select>
+        </div>
+
+        <input type="hidden" id="selectedCity" name="selectedCity" />
+        <input type="hidden" id="selectedCountry" name="selectedCountry" />
+
+        <script>
+          function fetchJSONFile(path, callback) {
+            var httpRequest = new XMLHttpRequest();
+            httpRequest.onreadystatechange = function () {
+              if (httpRequest.readyState === 4) {
+                if (httpRequest.status === 200) {
+                  var data = JSON.parse(httpRequest.responseText);
+                  if (callback) callback(data);
+                } else {
+                  console.error(
+                    "Error fetching JSON file:",
+                    httpRequest.status
+                  );
+                }
+              }
+            };
+            httpRequest.open("GET", path);
+            httpRequest.send();
+          }
+
+          function handleSearch(data) {
+            var searchInput = document.getElementById("search");
+            var searchDropdown = document.getElementById("searchDropdown");
+            var searchResults = document.getElementById("searchResults");
+
+            searchDropdown.innerHTML = "";
+
+            var searchValue = searchInput.value.toLowerCase();
+            var foundResults = false;
+            data.forEach(function (entry) {
+              if (
+                entry.city.toLowerCase().includes(searchValue) ||
+                entry.country.toLowerCase().includes(searchValue)
+              ) {
+                foundResults = true;
+                var option = document.createElement("option");
+                option.text = entry.city + ", " + entry.country;
+                option.value = entry.city + "," + entry.country;
+                searchDropdown.appendChild(option);
+              }
+            });
+
+            searchResults.style.display =
+              foundResults && searchValue.length > 0 ? "block" : "none";
+          }
+
+          function saveSearchDetails(city, country) {
+            sessionStorage.setItem("selectedCity", city);
+            sessionStorage.setItem("selectedCountry", country);
+          }
+
+          function loadSearchDetails() {
+            var selectedCity = sessionStorage.getItem("selectedCity");
+            var selectedCountry = sessionStorage.getItem("selectedCountry");
+            if (selectedCity && selectedCountry) {
+              document.getElementById("selectedCity").value = selectedCity;
+              document.getElementById("selectedCountry").value =
+                selectedCountry;
+              document.getElementById("search").value =
+                selectedCity + ", " + selectedCountry;
+            }
+          }
+
+          document
+            .getElementById("search")
+            .addEventListener("input", function () {
+              fetchJSONFile("static/countries.json", handleSearch);
+            });
+
+          document
+            .getElementById("searchDropdown")
+            .addEventListener("change", function () {
+              var selectedValue = this.value.split(",");
+              document.getElementById("selectedCity").value = selectedValue[0];
+              document.getElementById("selectedCountry").value =
+                selectedValue[1];
+              document.getElementById("search").value =
+                selectedValue[0] + ", " + selectedValue[1];
+              saveSearchDetails(selectedValue[0], selectedValue[1]);
+              document.getElementById("searchResults").style.display = "none";
+            });
+
+          window.onload = loadSearchDetails;
+
+          function predict() {
+            var selectedCity = document.getElementById("selectedCity").value;
+            var selectedCountry =
+              document.getElementById("selectedCountry").value;
+            saveSearchDetails(selectedCity, selectedCountry);
+            console.log("Predict button clicked");
+            // Handle redirecting to the result page if needed
+          }
+        </script>
+        <div class="mb-3">
+          <label for="prediction_year" class="form-label"
+            >FORECASTING YEAR</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="prediction_year"
+            name="prediction_year"
+            placeholder="Enter year from 2025"
+            required
+          />
+          <div id="error-message" class="text-danger" style="display: none">
+            Enter year from 2025
+          </div>
+        </div>
+
+        <script>
+          // Get the input element
+          var predictionYearInput = document.getElementById("prediction_year");
+          // Get the error message element
+          var errorMessage = document.getElementById("error-message");
+
+          // Add event listener for input
+          predictionYearInput.addEventListener("input", function () {
+            // Get the entered year
+            var enteredYear = parseInt(predictionYearInput.value);
+
+            // Validate the entered year
+            if (enteredYear < 2025 || enteredYear > 2100) {
+              // Display error message
+              errorMessage.style.display = "block";
+            } else {
+              // Hide error message
+              errorMessage.style.display = "none";
+            }
+          });
+
+          // Add event listener for form submission
+          document
+            .querySelector("form")
+            .addEventListener("submit", function (event) {
+              // Get the entered year
+              var enteredYear = parseInt(predictionYearInput.value);
+
+              // Validate the entered year
+              if (enteredYear < 2025 || enteredYear > 2100) {
+                // Prevent form submission
+                event.preventDefault();
+                // Display error message
+                errorMessage.style.display = "block";
+                // Disable all form inputs
+                var formInputs = document.querySelectorAll(
+                  "form input, form select"
+                );
+                formInputs.forEach(function (input) {
+                  input.disabled = true;
+                });
+              }
+            });
+        </script>
+
+        <!-- Rest of the form inputs -->
+        <div class="mb-3">
+          <label for="no_of_adult" class="form-label">NUMBER OF ADULTS:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="no_of_adult"
+            name="no_of_adult"
+            value="1"
+            required
+            min="0"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="universities" class="form-label"
+            >NUMBER OF UNIVERSITY STUDENTS</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="universities"
+            name="universities"
+            value="0"
+            required
+            min="0"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="schoolers" class="form-label"
+            >NUMBER OF PRIMARY-SECONDARY SCHOOLERS</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="schoolers"
+            name="schoolers"
+            value="0"
+            required
+            min="0"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="preschoolers" class="form-label"
+            >NUMBER OF PRESCHOOLERS</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="preschoolers"
+            name="preschoolers"
+            value="0"
+            required
+            min="0"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="no_of_infant" class="form-label">NUMBER OF INFANTS</label>
+          <input
+            type="number"
+            class="form-control"
+            id="no_of_infant"
+            name="no_of_infant"
+            value="0"
+            required
+            min="0"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="res_level" class="form-label"
+            >RESTAURANT PREFERENCE</label
+          >
+          <select
+            id="res_level"
+            name="res_level"
+            class="form-select form-select-half"
+            required
+          >
+            <option value="inexpensive">Inexpensive</option>
+            <option value="mid-range">Mid-range</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="eat_out" class="form-label"
+            >MONTHLY FREQUENCY OF EATING OUT</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="eat_out"
+            name="eat_out"
+            required
+            min="0"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="alcohol" class="form-label">ALCOHOL PREFERENCE</label>
+          <select
+            id="alcohol"
+            name="alcohol"
+            class="form-select form-select-half"
+            required
+          >
+            <option value="none alcohol" selected>None Alcohol</option>
+            <option value="local beer">Local Beer</option>
+            <option value="imported beer">Imported Beer</option>
+            <option value="wine">Wine</option>
+          </select>
+        </div>
+        <script>
+          document
+            .getElementById("alcohol")
+            .addEventListener("change", function () {
+              var alcohol = this.value;
+              var alcoholFields = document.getElementById("alcohol_fields");
+              var alcoholConsumersField =
+                document.getElementById("alcohol_consumers");
+              var alcoholConsumptionField = document.getElementById(
+                "alcohol_consumption"
+              );
+              var totalMembers =
+                parseInt(document.getElementById("no_of_adult").value) +
+                parseInt(document.getElementById("universities").value) +
+                parseInt(document.getElementById("schoolers").value) +
+                parseInt(document.getElementById("preschoolers").value) +
+                parseInt(document.getElementById("no_of_infant").value);
+
+              if (alcohol != "none alcohol") {
+                if (totalMembers == 1) {
+                  alcoholFields.style.display = "block";
+                  alcoholConsumersField.style.display = "none";
+                  alcoholConsumersField.value = "1"; // Set value to 1
+                  alcoholConsumersField.required = false;
+                  document.querySelector(
+                    'label[for="alcohol_consumers"]'
+                  ).style.display = "none";
+                  alcoholConsumptionField.style.display = "block";
+                  alcoholConsumptionField.required = true;
+                  document.querySelector(
+                    'label[for="alcohol_consumption"]'
+                  ).style.display = "inline";
+                } else if (totalMembers > 1) {
+                  alcoholFields.style.display = "block";
+                  alcoholConsumersField.style.display = "block";
+                  alcoholConsumersField.required = true;
+                  document.querySelector(
+                    'label[for="alcohol_consumers"]'
+                  ).style.display = "inline";
+                  alcoholConsumptionField.style.display = "block";
+                  alcoholConsumptionField.required = true;
+                  document.querySelector(
+                    'label[for="alcohol_consumption"]'
+                  ).style.display = "inline";
+                }
+              } else {
+                alcoholFields.style.display = "none";
+                alcoholConsumersField.style.display = "none";
+                alcoholConsumersField.required = false;
+                document.querySelector(
+                  'label[for="alcohol_consumers"]'
+                ).style.display = "none";
+                alcoholConsumptionField.style.display = "none";
+                alcoholConsumptionField.required = false;
+                document.querySelector(
+                  'label[for="alcohol_consumption"]'
+                ).style.display = "none";
+              }
+            });
+        </script>
+
+        <div id="alcohol_fields" style="display: none">
+          <div class="mb-3">
+            <label for="alcohol_consumers" class="form-label"
+              >NUMBER OF ALCOHOL CONSUMERS IN YOUR FAMILY</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="alcohol_consumers"
+              name="alcohol_consumers"
+              value="0"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="alcohol_consumption" class="form-label"
+              >FREQUENCY OF DRINKING ALCOHOL</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="alcohol_consumption"
+              name="alcohol_consumption"
+              value="0"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="cafe" class="form-label"
+            >FREQUENCY OF VISITING CAFES</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="cafe"
+            name="cafe"
+            required
+            min="0"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="food_pref" class="form-label">DIETARY PREFERENCE</label>
+          <select
+            id="food_pref"
+            name="food_pref"
+            class="form-select form-select-half"
+            required
+            min="0"
+          >
+            <option value="veg">Veg</option>
+            <option value="non-veg">Non-Veg</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="cuisine" class="form-label">PREFERRED CUISINE</label>
+          <select
+            id="cuisine"
+            name="cuisine"
+            class="form-select form-select-half"
+            required
+          >
+            <option value="Indian">Indian</option>
+            <option value="American">American</option>
+            <option value="Arabic">Arabic</option>
+            <option value="English">English</option>
+            <option value="Italian">Italian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Mexican">Mexican</option>
+            <option value="French">French</option>
+            <option value="Thai">Thai</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Spanish">Spanish</option>
+            <!-- Add more cuisine options here -->
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="smoke" class="form-label">SMOKING PREFERENCE</label>
+          <select
+            id="smoke"
+            name="smoke"
+            class="form-select form-select-half"
+            required
+          >
+            <option value="no" selected>No</option>
+            <option value="yes">Yes</option>
+          </select>
+        </div>
+
+        <div id="smoke_frequency" style="display: none">
+          <div class="mb-3">
+            <label for="smoke_freq" class="form-label">SMOKING FREQUENCY</label>
+            <select
+              id="smoke_freq"
+              name="smoke_freq"
+              class="form-select form-select-half"
+              required
+            >
+              <option value="Once daily">Once daily</option>
+              <option value="Once a week">Once a week</option>
+              <option value="2-3 times a week">2-3 times a week</option>
+              <option value="Once a month">Once a month</option>
+              <option value="More than once a day">More than once a day</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="smoke_family" style="display: none">
+          <div class="mb-3">
+            <label for="smoke_family_count" class="form-label"
+              >NUMBER OF SMOKERS IN YOUR FAMILY</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="smoke_family_count"
+              name="smoke_family_count"
+              value="0"
+            />
+          </div>
+        </div>
+
+        <script>
+          var smokeSelect = document.getElementById("smoke");
+          var smokeFreqDiv = document.getElementById("smoke_frequency");
+          var smokeFamilyDiv = document.getElementById("smoke_family");
+          var smokeFreqField = document.getElementById("smoke_freq");
+          var smokeFamilyField = document.getElementById("smoke_family_count");
+
+          // Check the initial value of the smoke select
+          if (smokeSelect.value === "no") {
+            smokeFreqDiv.style.display = "none";
+            smokeFamilyDiv.style.display = "none";
+          }
+
+          // Show/hide smoking frequency and family member options based on the user's choice
+          smokeSelect.addEventListener("change", function () {
+            var totalMembers =
+              parseInt(document.getElementById("no_of_adult").value) +
+              parseInt(document.getElementById("universities").value) +
+              parseInt(document.getElementById("schoolers").value) +
+              parseInt(document.getElementById("preschoolers").value) +
+              parseInt(document.getElementById("no_of_infant").value);
+
+            if (this.value === "yes") {
+              smokeFreqDiv.style.display = "block";
+              smokeFreqField.required = true;
+
+              if (totalMembers == 1) {
+                smokeFamilyDiv.style.display = "none";
+                smokeFamilyField.value = "1";
+              } else if (totalMembers > 1) {
+                smokeFamilyDiv.style.display = "block";
+                smokeFamilyField.style.display = "block";
+                smokeFamilyField.required = true;
+              }
+            } else {
+              smokeFreqDiv.style.display = "none";
+              smokeFamilyDiv.style.display = "none";
+              smokeFamilyField.value = "0";
+              smokeFamilyField.style.display = "none";
+            }
+          });
+        </script>
+        <div class="mb-3">
+          <label for="no_of_cars" class="form-label"
+            >NUMBER OF CARS OWNED</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="no_of_cars"
+            name="no_of_cars"
+            required
+            min="0"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="no_of_bikes" class="form-label"
+            >NUMBER OF BIKES OWNED</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="no_of_bikes"
+            name="no_of_bikes"
+            required
+            min="0"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="travel_distance_car" class="form-label"
+            >WEEKLY CAR USAGE IN KMS</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="travel_distance_car"
+            name="travel_distance_car"
+            required
+            min="0"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="travel_distance_bike" class="form-label"
+            >WEEKLY BIKE USAGE IN KMS</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="travel_distance_bike"
+            name="travel_distance_bike"
+            required
+            min="0"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="taxi" class="form-label"
+            >MONTHLY FREQUENCY OF TAXI USAGE</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="taxi"
+            name="taxi"
+            required
+            min="0"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="buy_car" class="form-label"
+            >INTERESTED IN BUYING A CAR</label
+          >
+          <select
+            id="buy_car"
+            name="buy_car"
+            class="form-select form-select-half"
+            required
+          >
+            <option value="no" selected>No</option>
+            <option value="yes">Yes</option>
+          </select>
+        </div>
+
+        <div id="car_options" style="display: none">
+          <div class="mb-3">
+            <label for="car_type" class="form-label">PREFERRED CAR CLASS</label>
+            <select
+              id="car_type"
+              name="car_type"
+              class="form-select form-select-half"
+              required
+            >
+              <option value="sedan">Sedan</option>
+              <option value="hatchback">Hatchback</option>
+              <option value="suv">SUV</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="buy_car_years" class="form-label"
+              >YEARS BEFORE BUYING CAR</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="buy_car_years"
+              name="buy_car_years"
+              required
+              min="0"
+              value="0"
+            />
+          </div>
+        </div>
+
+        <script>
+          // Script to show/hide car options based on the user's choice
+          var buyCarSelect = document.getElementById("buy_car");
+          var carOptionsDiv = document.getElementById("car_options");
+          var carTypeSelect = document.getElementById("car_type");
+          var buyCarYearsInput = document.getElementById("buy_car_years");
+
+          // Initially hide car options
+          carOptionsDiv.style.display = "none";
+
+          // Check the initial value of the buy_car select
+          if (buyCarSelect.value === "yes") {
+            carOptionsDiv.style.display = "block";
+          }
+
+          buyCarSelect.addEventListener("change", function () {
+            if (this.value === "yes") {
+              carOptionsDiv.style.display = "block";
+            } else {
+              carOptionsDiv.style.display = "none";
+            }
+          });
+        </script>
+
+        <div class="mb-3">
+          <label for="bhk" class="form-label"
+            >HOUSE SIZE PREFERENCE (1, 2, 3 BHK)</label
+          >
+          <select
+            id="bhk"
+            name="bhk"
+            class="form-select form-select-half"
+            required
+          >
+            <option value="1">1 BHK</option>
+            <option value="2">2 BHK</option>
+            <option value="3">3 BHK</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="location" class="form-label"
+            >HOUSE LOCATION PREFERENCE</label
+          >
+          <select
+            id="location"
+            name="location"
+            class="form-select form-select-half"
+            required
+          >
+            <option value="city center">City Center</option>
+            <option value="outskirts">Outskirts</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="gym" class="form-label">NUMBER OF GYMMERS</label>
+          <input
+            type="number"
+            class="form-control"
+            id="gym"
+            name="gym"
+            required
+            min="0"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="movie" class="form-label"
+            >MONTHLY FREQUENCY OF VISITING CINEMA</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="movie"
+            name="movie"
+            required
+            min="0"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="save_house" class="form-label"
+            >INTERESTED IN BUYING HOUSE</label
+          >
+          <select
+            id="save_house"
+            name="save_house"
+            class="form-select form-select-half"
+            required
+          >
+            <option value="no" selected>No</option>
+            <option value="yes">Yes</option>
+          </select>
+        </div>
+
+        <div id="save_house_years_section" style="display: none">
+          <div class="mb-3">
+            <label for="save_house_years" class="form-label"
+              >YEARS BEFORE BUYING HOUSE</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="save_house_years"
+              name="save_house_years"
+              value="0"
+            />
+          </div>
+        </div>
+
+        <script>
+          var saveHouseSelect = document.getElementById("save_house");
+          var saveHouseYearsSection = document.getElementById(
+            "save_house_years_section"
+          );
+          var saveHouseYearsInput = document.getElementById("save_house_years");
+
+          // Check the initial value of the save_house select
+          if (saveHouseSelect.value === "yes") {
+            saveHouseYearsSection.style.display = "block";
+            saveHouseYearsInput.required = true;
+          }
+
+          saveHouseSelect.addEventListener("change", function () {
+            if (this.value === "yes") {
+              saveHouseYearsSection.style.display = "block";
+              saveHouseYearsInput.required = true;
+            } else {
+              saveHouseYearsSection.style.display = "none";
+              saveHouseYearsInput.required = false;
+            }
+          });
+        </script>
+
+        <br /><br /><br />
+        <center>
+          <button type="submit" class="btn btn-outline-primary">
+            FORECAST
+          </button>
+        </center>
+        <br /><br />
+        <script>
+          document
+            .querySelectorAll('input[type="number"]')
+            .forEach(function (input) {
+              input.addEventListener("input", function () {
+                var enteredValue = parseInt(input.value);
+                if (enteredValue < 0 || isNaN(enteredValue)) {
+                  // Display error message
+                  input.setCustomValidity(
+                    "Please enter a non-negative number."
+                  );
+                  input.reportValidity();
+                } else {
+                  // Clear error message
+                  input.setCustomValidity("");
+                }
+              });
+            });
+
+          document
+            .querySelector("form")
+            .addEventListener("submit", function (event) {
+              var inputs = document.querySelectorAll('input[type="number"]');
+              var hasNegativeValue = false;
+
+              inputs.forEach(function (input) {
+                var enteredValue = parseInt(input.value);
+                if (enteredValue < 0 || isNaN(enteredValue)) {
+                  hasNegativeValue = true;
+                  return;
+                }
+              });
+
+              if (hasNegativeValue) {
+                event.preventDefault(); // Prevent form submission
+                alert("Please correct all input fields with negative values.");
+              }
+            });
+        </script>
+      </form>
+    </div>
+
+    <!-- Add a container for error messages -->
+    <div id="error-messages" class="text-danger mb-3"></div>
+
+    <script>
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          var inputs = this.querySelectorAll("input, select");
+          var isValid = true;
+          var errorMessageContainer = document.getElementById("error-messages");
+          errorMessageContainer.innerHTML = ""; // Clear previous error messages
+
+          inputs.forEach(function (input) {
+            if (!input.value.trim()) {
+              isValid = false;
+              input.classList.add("is-invalid");
+            } else {
+              input.classList.remove("is-invalid");
+            }
+          });
+
+          // Check if any field is missing and display error messages
+          if (!isValid) {
+            errorMessageContainer.innerHTML =
+              '<p class="mb-0">Please fill out all fields</p>';
+            event.preventDefault(); // Prevent form submission if any field is blank
+            // Scroll to the error message container for better visibility
+            errorMessageContainer.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+    </script>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+     
+  </body>
+</html>

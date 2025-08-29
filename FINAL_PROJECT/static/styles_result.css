@@ -1,0 +1,37 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f7ff; /* Light blue background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+    height: 100vh; /* Use full viewport height */
+}
+
+.container {
+    width: 80%;
+    max-width: 600px; /* Adjusted max-width for better centering */
+    background-color: #3a5f8f; /* Dark blue container background */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    box-sizing: border-box;
+    margin: 0 auto; /* Set left and right margins to auto for horizontal centering */
+}
+
+h1, h2, p {
+    text-align: center;
+    color: #ffffff; /* White text color */
+}
+
+h1 {
+    margin-bottom: 20px; /* Increase spacing between title and content */
+}
+
+/* Styles for mobile responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}

@@ -1,0 +1,268 @@
+/* Common Section Hero section and Navbar Container */
+.section-container {
+    background-color: #ffffff; /* Set background color for both navbar and hero section */
+  }
+  
+  /* Hero Section CSS */
+  .hero-section {
+    padding: 100px 0;
+    text-align: center; /* Center align the text */
+    background-color: #ffffff; /* Set hero section background color to match the container */
+  }
+  
+  .hero-title {
+    font-size: 3rem; /* Increase text size */
+    font-weight: bold;
+    font-family: 'Pacifico', cursive; /* Unique catchy font */
+    color: #000000; /* Black color */
+    animation: colorChangeTitle 5s infinite alternate; /* Color animation effect */
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem; /* Increase text size */
+    font-weight: bold;
+    font-family: 'Indie Flower', cursive; /* Unique catchy font */
+    color: #007bff; /* Light blue color */
+    animation: colorChangeSubtitle 5s infinite alternate; /* Color animation effect */
+    margin-bottom: 30px;
+  }
+  .btn-get-started {
+    display: inline-block; /* Make the button inline-block */
+    font-size: 1.5rem; /* Increase button font size */
+    padding: 10px 20px; /* Increase button padding */
+    background-color: #007bff; /* Light blue color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.3s ease; /* Add smooth transition for transform */
+  }
+  
+  .btn-get-started:hover {
+    transform: scale(1.1); /* Scale up the button slightly on hover */
+  }
+  
+  .lottie-container {
+    /* Adjust the size of the container to fit your animation */
+    width: 100%; /* Increase the width of the animation */
+    max-width: 800px; /* Set a maximum width for responsiveness and increase image size */
+    height: 500px; /* Increase image size */
+  }
+  
+  /* Color animation keyframes for title */
+  @keyframes colorChangeTitle {
+    0% { color: #000000; } /* Initial color */
+    50% { color: #007bff; } /* Midway color */
+    100% { color: #000000; } /* Final color */
+  }
+  
+  /* Color animation keyframes for subtitle */
+  @keyframes colorChangeSubtitle {
+    0% { color: #007bff; } /* Initial color */
+    50% { color: #000000; } /* Midway color */
+    100% { color: #007bff; } /* Final color */
+  }
+  
+  /* Import unique catchy fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+  
+  /* Navbar CSS */
+  .navbar {
+    background-color: #ffffff; /* Set background color to white */
+  }
+  
+  .navbar-brand {
+    font-family: "Arial", sans-serif; /* Use the desired font */
+    font-weight: bold;
+    font-size: 28px; /* Increase font size of the navbar brand */
+    display: flex; /* Align items horizontally */
+    align-items: center; /* Center vertically */
+  }
+  
+  /* Navbar Link */
+  .navbar-nav .nav-link {
+    font-family: "Arial", sans-serif; /* Use the desired font */
+    font-size: 18px; /* Increase font size of the navbar links */
+    color: #000000; /* Black color for navbar links */
+    font-weight: bold; /* Make navbar links bold */
+  }
+  
+  /* Small Image */
+  .navbar-brand img {
+    width: 55px; /* Increase image width */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between image and text */
+  }
+  
+  /* Hover Effect */
+  .navbar-nav .nav-item .nav-link:hover {
+    color: #007bff; /* Change text color on hover */
+    background-color: rgba(0, 123, 255, 0.1); /* Light blue background on hover */
+    border-radius: 5px; /* Rounded corners on hover */
+  }
+  
+  /* Space between navbar items */
+  .navbar-nav .nav-item {
+    margin-right: 15px; /* Adjust spacing between navbar items */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: column; /* Stack navbar items vertically */
+      text-align: center; /* Center navbar items */
+    }
+  
+    .navbar-nav .nav-item {
+      margin: 10px 0; /* Adjust margin for smaller screens */
+    }
+  }
+  
+  
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+  
+  /* Key features CSS */
+  #features {
+    padding: 50px 0; /* Add padding top and bottom */
+  }
+  
+  .card {
+    flex: 1;
+    margin: 0 10px; /* Adjust margin as needed */
+    text-align: center;
+    border: none; /* Remove default border */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transition effects */
+    border-radius: 15px; /* Rounded corners for the card */
+    overflow: hidden; /* Ensure content doesn't overflow */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Lift the card on hover */
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.5); /* Enhance shadow on hover */
+  }
+  
+  .card:hover .card-content {
+    background-color: rgba(
+      0,
+      123,
+      255,
+      0.1
+    ); /* Brighten the background color on hover */
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0; /* Rounded corners for the top of the image */
+  }
+  
+  .card-body {
+    padding: 1.5rem; /* Increase padding for better spacing */
+  }
+  
+  .card-title,
+  .card-text {
+    margin-bottom: 1rem; /* Increase margin bottom for better spacing */
+    font-family: 'Roboto Condensed', sans-serif; /* Use custom font */
+    font-weight: 700; /* Set font weight to bold */
+  }
+  
+  .card-content {
+    transition: background-color 0.3s ease-in-out; /* Add transition effect for background color change */
+  }
+  
+  /* Our Team CSS */
+  #our-team .card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  #our-team .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  #our-team .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 5px solid rgba(0, 123, 255, 0.2); /* Light blue color border */
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  #our-team .card:hover::before {
+    opacity: 1;
+  }
+  
+  #our-team .card-img-top {
+    width: 120px; /* Adjust image width */
+    height: 120px; /* Adjust image height */
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto; /* Center the image horizontally */
+  }
+  
+  #our-team .card-body {
+    padding: 1.25rem;
+  }
+  
+  #our-team .card-title,
+  #our-team .card-text {
+    margin-bottom: 0.5rem;
+    font-family: "Arial", sans-serif;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    #our-team .card {
+      margin-bottom: 20px;
+    }
+    #our-team .card-img-top {
+      width: 100px; /* Adjust image width for smaller screens */
+      height: 100px; /* Adjust image height for smaller screens */
+    }
+  }
+  
+  
+  /* Conatct Us CSS */
+  #contact {
+    padding: 50px 0; /* Add padding top and bottom */
+  }
+  
+  #contact h2 {
+    text-align: center;
+    margin-bottom: 30px; /* Add margin bottom for spacing */
+  }
+  
+  #contact .lead {
+    font-size: 1.1rem; /* Adjust font size for readability */
+    text-align: center;
+    margin-bottom: 30px; /* Add margin bottom for spacing */
+  }
+  
+  #contact .btn {
+    font-size: 1.2rem; /* Adjust font size for button */
+    border-radius: 25px; /* Add border radius for button */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    #contact .lead {
+      font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+    #contact .btn {
+      font-size: 1rem; /* Adjust font size for button on smaller screens */
+    }
+  }
+  
+  /* Footer Section Css*/
+  
+  
+  

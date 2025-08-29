@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Cost of Living Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom CSS Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .lottie-animation {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Page Content -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>About Our Project</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <p>Our college project focuses on predicting the cost of living using inflation analysis. We aim to provide valuable insights into how inflation impacts various aspects of everyday expenses, such as housing, transportation, groceries, and healthcare.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p>Through extensive research and data analysis, we explore the intricate relationship between inflation rates and the purchasing power of individuals and households. By understanding these dynamics, we seek to empower individuals and businesses with the knowledge to make informed financial decisions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="lottie-animation" id="lottieAnimation1"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p>Our project utilizes advanced statistical models and economic indicators to forecast future inflation trends and their effects on the cost of living. By leveraging technology and data-driven methodologies, we aim to develop accurate predictive tools that can benefit both consumers and policymakers.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p>With a commitment to academic rigor and innovation, our project strives to contribute to the field of economics and finance by shedding light on the complex dynamics of inflation and its implications for society. We believe that our research has the potential to make a meaningful impact on how individuals manage their finances and plan for the future.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="lottie-animation" id="lottieAnimation2"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
+    <!-- Custom Script -->
+    <script>
+        // Initialize Lottie Animations
+        lottie.loadAnimation({
+            container: document.getElementById('lottieAnimation1'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'static/About (1).json' // Path to your first Lottie animation JSON file
+        });
+
+        lottie.loadAnimation({
+            container: document.getElementById('lottieAnimation2'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'static/About 1.json' // Path to your second Lottie animation JSON file
+        });
+    </script>
+</body>
+
+</html>
